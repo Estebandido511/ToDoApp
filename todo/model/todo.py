@@ -30,6 +30,7 @@ class TodoBook:
         return new_id
 
     def pending_todos(self):
+        return self.todos
 
 
 
