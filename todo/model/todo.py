@@ -10,4 +10,5 @@ class Todo:
 
     def mark_completed(self):
         self.completed: bool = True
+        pass
 
