@@ -1,4 +1,7 @@
 # TODO: Add code here
+from itertools import count
+
+
 class Todo:
     def __init__ (self, code_id: int, title: str, description: str):
         self.code_id: int = code_id
@@ -29,8 +32,16 @@ class TodoBook:
         self.todos[new_id] = new_todo
         return new_id
 
-    def pending_todos(self):
-        return self.todos
+    def pending_todos(self) -> list[Todo]:
+        return [todo for todo in self.todos.values() if not todo.completed ]
+
+    def completed_todos(self) -> list[Todo]:
+        return [todo for todo in self.todos.values() if todo.completed ]
+
+    def tags_todo_count(self)-> dict[str, int]:
+        tags = [tag for todo in self.todos.values()for tag in todo.tags]
+        return { tag: tags.count(tag) for tag in set(tags) }
+
 
 
 
